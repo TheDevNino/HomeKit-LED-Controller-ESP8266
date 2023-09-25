@@ -1,8 +1,4 @@
 # HomeKit-LED-Controller-ESP8266
-You can control a 4 PIN LED Strip just by using MOSFETs and a ESP8266 with this Code
-
-Details...
-
 This Arduino sketch is designed to run on a Wemos D1 Mini board and control an RGB LED strip with four pins using HomeKit. It allows you to control the color, brightness, and power state of the RGB LED strip using HomeKit accessories on iOS devices. Below is a brief description of the key components and functions in the code:
 
 ### Dependencies:
