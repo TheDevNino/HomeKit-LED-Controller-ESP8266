@@ -13,3 +13,11 @@ The RGB LED strip is connected to the Wemos D1 Mini using pins D8 (GPIO15) for t
 ### WiFi Connection:
 Wi-Fi connection is established using the wifi_connect function defined in an external header file (wifi_info.h).
 Write your **SSID** and **Password** into the header file, or include an AP Capture.
+```
+const char *ssid = "YOUR-SSID";
+const char *password = "YOUR-PWD";
+```
+
+![LED-RGB-Strip-Controller_bb](https://github.com/TheDevNino/HomeKit-LED-Controller-ESP8266/assets/44969214/a1029a23-b1d5-4ddf-b17e-5fd42e08c151)
+
+[Image source](https://www.ghost7.com/build-a-homekit-enabled-wifi-led-strip/)
