@@ -13,22 +13,23 @@
 #elif defined(ESP32)
 #include <WiFi.h>
 #endif
-
-const char *ssid = "YOUR-SSID";
-const char *password = "YOUR-PWD";
+#include <WiFiManager.h>
 
 void wifi_connect() {
-	WiFi.persistent(false);
-	WiFi.mode(WIFI_STA);
-	WiFi.setAutoReconnect(true);
-	WiFi.begin(ssid, password);
-	Serial.println("WiFi connecting...");
-	while (!WiFi.isConnected()) {
-		delay(100);
-		Serial.print(".");
-	}
-	Serial.print("\n");
-	Serial.printf("WiFi connected, IP: %s\n", WiFi.localIP().toString().c_str());
+    WiFiManager wifiManager;
+
+    // Start WiFiManager (connect or create an AP and serve the config portal)
+    if (!wifiManager.autoConnect("CustomAP")) {
+        Serial.println("Failed to connect and hit timeout");
+        delay(3000);
+        // Reset and try again, or do whatever is required
+        ESP.restart();
+        delay(5000);
+    }
+
+    // If connected or AP mode, print the current IP
+    Serial.println("Connected! IP address:");
+    Serial.println(WiFi.localIP());
 }
 
 #endif /* WIFI_INFO_H_ */
